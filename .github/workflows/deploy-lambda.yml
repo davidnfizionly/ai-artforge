@@ -1,0 +1,31 @@
+# .github/workflows/deploy-lambda.yml
+name: Deploy Lambda Function
+
+on:
+  push:
+    paths:
+      - generateImageFromPrompt/**  # 🔄 surveille ce dossier
+      - .github/workflows/deploy-lambda.yml
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Zip Lambda function code
+        run: |
+          cd generateImageFromPrompt
+          zip -r ../lambda.zip .
+
+      - name: Deploy to AWS Lambda
+        uses: aws-actions/aws-cli-action@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          inline-script: |
+            aws lambda update-function-code \
+              --function-name ${{ secrets.LAMBDA_FUNCTION_NAME }} \
+              --zip-file fileb://lambda.zip

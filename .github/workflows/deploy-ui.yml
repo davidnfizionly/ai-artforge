@@ -1,0 +1,27 @@
+# .github/workflows/deploy-ui.yml
+name: Deploy UI to S3
+
+on:
+  push:
+    paths:
+      - ui/**
+      - .github/workflows/deploy-ui.yml
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Upload UI to S3
+        uses: aws-actions/aws-s3-sync@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          source-dir: ui
+          destination-bucket: ${{ secrets.S3_BUCKET_NAME }}
+          destination-prefix: ui
+          delete: true

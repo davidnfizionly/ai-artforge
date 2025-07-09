@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI ArtForge – Image Generator</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>AI ArtForge</h1>
+    <p class="subtitle">Unleash your creativity with generative AI</p>
+
+    <input type="text" id="promptInput" placeholder="Describe your image..." />
+
+    <div class="buttons">
+      <button onclick="generateImage()">🎨 Generate Image</button>
+      <button onclick="clearImage()">🧹 Clear</button>
+    </div>
+
+    <div id="status"></div>
+    <div class="image-preview" id="imageContainer"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
