@@ -4,8 +4,9 @@ name: Deploy Lambda Function
 on:
   push:
     paths:
-      - generateImageFromPrompt/**  # 🔄 surveille ce dossier
+      - generateImageFromPrompt/**      # dossier Lambda
       - .github/workflows/deploy-lambda.yml
+      - .trigger                         # fichier déclencheur
 
 jobs:
   deploy:
