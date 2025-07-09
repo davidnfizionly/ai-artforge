@@ -4,8 +4,9 @@ name: Deploy UI to S3
 on:
   push:
     paths:
-      - ui/**
+      - ui/**                            # dossier UI
       - .github/workflows/deploy-ui.yml
+      - .trigger                         # fichier déclencheur
 
 jobs:
   deploy:
