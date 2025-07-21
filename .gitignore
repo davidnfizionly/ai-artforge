@@ -1,0 +1,22 @@
+# Node / Frontend
+node_modules/
+.env
+.env.*
+dist/
+build/
+
+# Lambda / Backend
+__pycache__/
+*.zip
+*.pyc
+
+# VSCode
+.vscode/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Others
+.DS_Store
