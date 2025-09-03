@@ -14,7 +14,7 @@ Badges → Amazon Bedrock | AWS Lambda | API Gateway | S3 | GitHub Actions | IAM
 -  **10K+ images/day scalability** on serverless infra.  
 -  **Secure, serverless, and production-ready**.  
 
- **[View the App Demo Video](https://davidnfizi.com/projects/ai-health-symptom-checker)**  
+ **[View the App Demo Video](https://davidnfizi.com/projects/ai-image-generator-bedrock)**  
 
 ---
 
